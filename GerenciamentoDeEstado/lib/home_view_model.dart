@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:myflu/patient.dart';
+import 'package:myflu/explorer.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  final List<Patient> listPatients = [];
+  final List<Explorer> listExplorers = [];
 
-  void add(String name, String age){
-    final patient = Patient(name: name, age: int.parse(age));
-    listPatients.add(patient);
-    notifyListeners(); //avisa que um paciente foi adcionado
+  void add(String name, String age) {
+    final explorer = Explorer(name: name, age: int.parse(age));
+    listExplorers.add(explorer);
+    notifyListeners();
   }
 
-  void removePatient(Patient value){
-    listPatients.remove(value);
+  void remove(Explorer value) {
+    listExplorers.remove(value);
     notifyListeners();
-
   }
 }

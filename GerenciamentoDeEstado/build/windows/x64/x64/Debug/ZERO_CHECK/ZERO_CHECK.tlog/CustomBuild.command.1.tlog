@@ -1,0 +1,10 @@
+^C:\USERS\GIOVA\ONEDRIVE\DESKTOP\FIAP\GERENCIAMENTODEESTADO\BUILD\WINDOWS\X64\CMAKEFILES\B258152D6F1CD4EDFA47D886B9C4F662\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/giova/OneDrive/Desktop/Fiap/GerenciamentoDeEstado/windows -BC:/Users/giova/OneDrive/Desktop/Fiap/GerenciamentoDeEstado/build/windows/x64 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/giova/OneDrive/Desktop/Fiap/GerenciamentoDeEstado/build/windows/x64/myflu.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

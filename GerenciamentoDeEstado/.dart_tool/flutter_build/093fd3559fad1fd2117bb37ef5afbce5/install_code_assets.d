@@ -1,0 +1,1 @@
+ C:\\Users\\giova\\OneDrive\\Desktop\\Fiap\\GerenciamentoDeEstado\\.dart_tool\\flutter_build\\093fd3559fad1fd2117bb37ef5afbce5\\native_assets.json: 
