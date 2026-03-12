@@ -1,5 +1,5 @@
-import 'package:padrao_projeto_flutter/domain/entities/product_entity.dart';
 
+import 'package:api/domain/entities/product_entity.dart';
 // A diferença: ProductEntity é a camada de negócio, ProductModel é a camada de dados
 class ProductModel extends ProductEntity {
   // Construtor que recebe id, title e price
