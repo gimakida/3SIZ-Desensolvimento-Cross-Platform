@@ -10,7 +10,14 @@ ProductRepositoryImpl(this.productDatasource);
 @override
 
 Future<List<ProductEntity>> getProducts(){
-  return productDatasource.getProducts();
+  return  productDatasource.getProducts();
+ 
 }
+
+  @override
+  Future<bool> createProduct(ProductEntity product) async {
+    
+   return await productDatasource.createProduct(product);
+  }
 
 }
