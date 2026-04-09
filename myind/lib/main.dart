@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'presentation/mission_list_screen.dart';
 import 'presentation/mission_view_model.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  //garante que tudo ta preparado para lançar, que ja ta injetado antes de aparecer
+  await setupDependencies();
+  
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => MissionViewModel()..loadMissions(),
+          create: (_) => MissionViewModel(),
         ),
       ],
       child: const MyApp(),

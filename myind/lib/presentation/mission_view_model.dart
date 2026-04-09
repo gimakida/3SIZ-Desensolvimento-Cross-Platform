@@ -1,10 +1,15 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:myind/data/mission_repository.dart';
 
 import '../domain/mission_model.dart';
 
 /// ViewModel responsável por gerenciar o estado da lista de missões.
 class MissionViewModel extends ChangeNotifier {
-  MissionViewModel();
+  //é imutavel
+  final MissionRepository _missionRepository;
+
+  MissionViewModel(this._missionRepository);
 
   // Lista interna de missões
   List<MissionModel> _missions = [];
@@ -25,6 +30,20 @@ class MissionViewModel extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
 
   /// Carrega as missões da fonte de dados e atualiza o estado.
-  Future<void> loadMissions() async {}
+  Future<void> loadMissions() async {
+      _isLoading = true;
+      _errorMessage = null;
+      notifyListeners();
+      try {
+        _missions = await _missionRepository.getMissions();
+      } on DioException catch (e) {
+        _errorMessage = 'erro ao carregar missoes ${e.message}';
+      } catch(e){
+        _errorMessage = 'erro tente novamente mais tarde';
+      } finally{
+        _isLoading = false;
+        notifyListeners();
+      }
+  }
 
 }
